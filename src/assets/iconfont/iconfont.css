@@ -1,0 +1,25 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1582644546936'); /* IE9 */
+  src: url('iconfont.eot?t=1582644546936#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOgAAsAAAAAB9AAAANUAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqDMIJ4ATYCJAMMCwgABCAFhG0HPhvGBhFVnCPIfhy4sdOw3vWmi5pBi/TPwfPkn/25M/OgJLsfkkvKFeBl/eugjG0HiqEFt+YcOBI+QpVk7cijf8hDKX9pRufn9JSakBNyPs/l9Fri81uW4xxDj3oBxgEFtDeNSYkWUEDcMrx2MRzGYQjgU5iKSMvWHXviYsCjBJCJ48YMw00ZMDXlgotglyw0yDosXLVcPQXW+t+XbKqLCwpLgyd2Hd1qJE3TcqYd1EuTSw10CYTj2QBpGWigImBABpc6+qLDREU0vqEw9fk2BkGNFU4m8QWmyl7pH0+B2ODSEICykFSQlpPxIJB28AIUABoAG3CAVcBRYOR8g0EXicejsmFshr9CZNmF8ndav3/bk6W+f+llQbX7Va3o6psies/r4Qc/tFl5/fZpiv3hChnlbnMiv955sky08ni+nis2webNK7d232TLjPfvex9scvbDyneVtufbvOnQltxk7xPvV7wte4r973qt/FBl69bDm3Oeezv00sulY9cse12b8Mn74uojosfviu17eyUjFGlcfPWY0W27BTNGqG4NRYKmmJih6WR/ZlwzqEnQsuW5gg9GBwUbC+4+enSlypNz7FCO/XToGOiQ1sJf6fSwtyWOuZOdlVh9esjkCaqrF7/aq8IIOuHKvml1p9hpdQatGty8WBd00uBNlQr37tGMqh2qlauTZg8pM3to49QOQ0t0LjF0H2T/3re0fQfXZeqlgZOh4KE6pr4C6N7q/U/7DeWGn8kaEm/43w0MAJ8XDG7uGwztVe4tOQV+kbBlnTHF2KiNLmAC26lpn/ChAII+8GMqAVL53l+Vq3UMBDcllKBwEApBc5WkGEZFWAI1YXM1ga+Cw/JADmxO7oHy3ggi4QMl5i60hC/FMH6w5PaHLdEcvt7l2DBQurhowagELegXREODo2ZZBOVH9LdOcVLsM6/IYwxDmRXZ9AEH5DGmjHdfiThwTD3s0XHYdQSJqUEjWRBJdZ67shdlhvrJQgsMKQJZQHsBkUEGzm0uFrnPHyHvpqNwDanBf4XYKLYPSpmiBeWgGFqRruWS0Z1XEcIBDiM9sEc21JEEAam8XwMZIhN6xJJazjVybRXZ/Kr++bYAPjxNN23H/NirdffD7KUG3+GG0msyAQ==') format('woff2'),
+  url('iconfont.woff?t=1582644546936') format('woff'),
+  url('iconfont.ttf?t=1582644546936') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1582644546936#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mima:before {
+  content: "\e614";
+}
+
+.icon-RectangleCopy:before {
+  content: "\e6a3";
+}
+
