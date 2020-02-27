@@ -49,7 +49,7 @@
               <el-button type="danger" icon="el-icon-delete" size="mini" @click="deleteUser(scope.row)"></el-button>
             </el-tooltip>
             <el-tooltip effect="dark" content="分配角色" placement="top" :enterable="false">
-              <el-button type="warning" icon="el-icon-setting" size="mini"></el-button>
+              <el-button type="warning" icon="el-icon-setting" size="mini" @click="setRole(scope.row)"></el-button>
             </el-tooltip>
           </template>
         </el-table-column>
@@ -125,6 +125,33 @@
         <el-button type="primary" @click="modifyUser">确 定</el-button>
       </span>
     </el-dialog>
+
+    <!-- 分配角色对话框 -->
+    <el-dialog
+      title="提示"
+      :visible.sync="setRoleDdialogShow"
+      width="50%">
+      <!-- 对话框主体内容区域 -->
+      <div>
+        <p>当前的用户：{{currentUser.username}}</p>
+        <p>当前的角色：{{currentUser.role_name}}</p>
+        <p>分配新角色：
+          <el-select v-model="selectedRoleId" placeholder="请选择">
+            <el-option
+              v-for="item in rolesList"
+              :key="item.id"
+              :label="item.roleName"
+              :value="item.id">
+            </el-option>
+          </el-select>
+        </p>
+      </div>
+      <!-- 对话框底部按钮区域 -->
+      <span slot="footer">
+        <el-button @click="setRoleDdialogShow = false">取 消</el-button>
+        <el-button type="primary" @click="saveRoleInfo">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -187,7 +214,12 @@
             { required: true, message: '请输入手机号', trigger: 'blur' },
             { validator: checkMobile, trigger: 'blur' }
           ],
-        }
+        },
+        // 分配角色对话框相关数据
+        setRoleDdialogShow: false,
+        currentUser: {},
+        rolesList: [],
+        selectedRoleId: '',
       }
     },
     created() {
@@ -273,6 +305,28 @@
         this.$message.success('删除成功');
         this.getUserList()
       },
+      async setRole(userInfo) {
+        this.currentUser = userInfo
+        this.setRoleDdialogShow = true 
+
+        const {data: res} = await this.$http.get('roles')
+        if(res.meta.status !== 200) return this.$message.error('获取用户列表失败，服务器端错误')
+
+        this.rolesList = res.data
+      },
+      async saveRoleInfo() {
+        if(!this.selectedRoleId) return this.$message.error('请选择角色')
+
+        const {data: res} = await this.$http.put(`users/${this.currentUser.id}/role`, {
+          rid: this.selectedRoleId
+        })
+        console.log(res)
+        if(res.meta.status !== 200) return this.$message.error('修改失败，服务器端错误')
+
+        this.setRoleDdialogShow = false
+        this.$message.success('修改成功')
+        this.getUserList()
+      }
     }
   }
 </script>
