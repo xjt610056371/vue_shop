@@ -227,9 +227,8 @@
         this.$refs.addRoleFormRef.validate(async valid => {
           if(!valid) return 
 
-          const {data: res} = await this.$http.post('roles', {
-
-          })
+          const {data: res} = await this.$http.post('roles',  this.roleInfo)
+          console.log(res)
           if(res.meta.status !== 201) return this.$message.error('添加失败，服务器端错误')
 
           this.$message.success('添加成功')

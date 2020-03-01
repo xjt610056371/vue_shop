@@ -54,7 +54,7 @@
       </el-pagination>
     </el-card>
 
-    <!-- 添加角色对话框 -->
+    <!-- 添加分类对话框 -->
     <el-dialog
       title="提示"
       :visible.sync="addCateDialogShow"
@@ -156,9 +156,9 @@
         if(res.meta.status !== 200) 
           return this.$message.error("获取商品分类失败，服务器错误")
         
+        console.log(res)
         this.cateList = res.data.result
         this.total = res.data.total
-        console.log(res.data)
       },
       // 分页相关
       handleSizeChange(newSize) {
@@ -191,15 +191,14 @@
         }
         
       },
-      async saveCate() {
+      saveCate() {
         this.$refs.addCateFormRef.validate(async valid => {
           if(!valid) return 
 
           const {data: res} = await this.$http.post('categories', this.cateInfo)
           if(res.meta.status !== 201) return this.$message.error('添加失败，服务器端错误')
 
-          console.log(res)
-          this.$message.success('添加成功')
+          this.$message.success('添加分类成功')
           this.addCateDialogShow = false
           this.getCateList()
         })
@@ -210,10 +209,6 @@
         this.cateInfo.cat_id = 0
         this.cateInfo.cat_level = 0
       },
-
-
-
-
     }
   }
 </script>

@@ -23,6 +23,15 @@ Vue.prototype.$http = axios
 import treeTable from 'vue-table-with-tree-grid'
 Vue.component('tree-table', treeTable)
 
+// 导入富文本编辑器
+import VueQuillEditor from 'vue-quill-editor'
+// 导入富文本编辑器样式
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+// 全局注册富文本编辑器
+Vue.use(VueQuillEditor)
+
 Vue.config.productionTip = false
 
 new Vue({
